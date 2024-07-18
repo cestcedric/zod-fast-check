@@ -1,17 +1,17 @@
 {
-  "name": "zod-fast-check",
-  "version": "0.10.1",
-  "description": "Generate fast-check arbitraries from Zod schemas.",
+  "name": "zod-fast-check-patched",
+  "version": "0.10.2",
+  "description": "Generate fast-check arbitraries from Zod schemas. Patched to newer zod version. Forked from DavidTimms.",
   "main": "dist/zod-fast-check.js",
   "types": "dist/zod-fast-check.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "prettier --check src && jest",
+    "test": "prettier --write src && jest",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "postversion": "git push && git push --tags"
   },
-  "author": "David Timms",
+  "author": "Cédric Stark",
   "license": "MIT",
   "sideEffects": false,
   "files": [
@@ -29,12 +29,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DavidTimms/zod-fast-check.git"
+    "url": "git+https://github.com/cestcedric/zod-fast-check.git"
   },
   "bugs": {
-    "url": "https://github.com/DavidTimms/zod-fast-check/issues"
+    "url": "https://github.com/cestcedric/zod-fast-check/issues"
   },
-  "homepage": "https://github.com/DavidTimms/zod-fast-check",
+  "homepage": "https://github.com/cestcedric/zod-fast-check",
   "devDependencies": {
     "@types/jest": "^28.1.6",
     "fast-check": "^3.0.0",
@@ -42,7 +42,7 @@
     "prettier": "^2.2.1",
     "ts-jest": "^26.4.4",
     "typescript": "^4.7.4",
-    "zod": "^3.20.5"
+    "zod": "^3.23.8"
   },
   "peerDependencies": {
     "fast-check": ">2.23.0 <4.0.0",

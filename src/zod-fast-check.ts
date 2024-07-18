@@ -30,13 +30,14 @@ import {
   ZodString,
   ZodSymbol,
   ZodTuple,
+  ZodType,
   ZodTypeDef,
   ZodUnion,
 } from "zod";
 
 const MIN_SUCCESS_RATE = 0.01;
 
-type UnknownZodSchema = ZodSchema<unknown, ZodTypeDef, unknown>;
+type UnknownZodSchema = ZodType<unknown, ZodTypeDef, unknown>;
 
 type SchemaToArbitrary = <Schema extends UnknownZodSchema>(
   schema: Schema,

@@ -2,14 +2,19 @@
 
 A small library to automatically derive [fast-check](https://github.com/dubzzz/fast-check) [arbitraries](https://github.com/dubzzz/fast-check/blob/master/documentation/Arbitraries.md) from schemas defined using the validation library [Zod](https://github.com/colinhacks/zod). These enables easy and thorough property-based testing.
 
+## Why this fork?
+
+Some incompatibility when using this (great) library with newer Zod versions, this is a minimal viable patch that fixes the issues I encounter.
+Happy to include your suggestions! Just create a PR 😊
+
 ## Usage
 
 Here is a complete example using [Jest](https://jestjs.io/).
 
 ```ts
-import * as z from "zod";
-import * as fc from "fast-check";
-import { ZodFastCheck } from "zod-fast-check";
+import * as z from 'zod';
+import * as fc from 'fast-check';
+import { ZodFastCheck } from 'zod-fast-check';
 
 // Define a Zod schema
 const User = z.object({
@@ -64,7 +69,7 @@ const WithFoo = z.string().regex(/^foo/);
 
 const zodFastCheck = ZodFastCheck().override(
   WithFoo,
-  fc.string().map((s) => "foo" + s)
+  fc.string().map((s) => 'foo' + s)
 );
 
 const arbitrary = zodFastCheck.inputOf(z.array(WithFoo));
@@ -78,7 +83,7 @@ If you need to use zod-fast-check to generate the override, it is easy to end up
 const WithFoo = z.string().regex(/^foo/);
 
 const zodFastCheck = ZodFastCheck().override(WithFoo, (zfc) =>
-  zfc.inputOf(z.string()).map((s) => "foo" + s)
+  zfc.inputOf(z.string()).map((s) => 'foo' + s)
 );
 
 const arbitrary = zodFastCheck.inputOf(z.array(WithFoo));
